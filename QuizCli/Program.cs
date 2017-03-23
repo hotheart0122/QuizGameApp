@@ -11,9 +11,9 @@ namespace QuizCli
     {
         static void Main(string[] args)
         {
-            QuizRepository quizRepo = new QuizRepository();
+            QuizRepositoryInMemory quizRepo = new QuizRepositoryInMemory();
 
-            quizRepo.AddQuestion(new QuizQuestion
+            quizRepo.AddQuestion(new Question
             {
                 Id = 0,
                 Category = "Test",
@@ -28,7 +28,7 @@ namespace QuizCli
                 }
             });
 
-            quizRepo.AddQuestion(new QuizQuestion
+            quizRepo.AddQuestion(new Question
             {
                 Id = 1,
                 Category = "Test",

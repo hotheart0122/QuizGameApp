@@ -1,4 +1,4 @@
-﻿@model QuizLibrary.QuizQuestion
+﻿@model QuizLibrary.Question
 
 @{
     ViewBag.Title = "Details";
@@ -66,7 +66,7 @@
             @foreach (var answer in Model.Answers)
             {
                 <div>
-                    ID: @answer.Id
+                    ID: @answer.AnswerId
                 </div>
                 <div>
                     Content: @answer.Content
@@ -79,6 +79,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.QuestionId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

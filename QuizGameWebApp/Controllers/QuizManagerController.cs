@@ -9,14 +9,14 @@ namespace QuizGameWebApp.Controllers
 {
     public class QuizManagerController : Controller
     {
-        private static QuizRepository _quizRepo;
+        private static IQuizRepository _quizRepo;
 
         public QuizManagerController()
         {
             if(_quizRepo == null)
             {
-                _quizRepo = new QuizRepository();
-                _quizRepo.LoadSampleQuestions();
+                _quizRepo = new QuizRepositoryEF();
+               
             }
         }
         
@@ -40,7 +40,7 @@ namespace QuizGameWebApp.Controllers
 
         // POST: QuizManager/Create
         [HttpPost]
-        public ActionResult Create(QuizQuestion newQuestion)
+        public ActionResult Create(Question newQuestion)
         {
             try
             {
@@ -61,14 +61,14 @@ namespace QuizGameWebApp.Controllers
 
         // POST: QuizManager/Edit/5
         [HttpPost]
-        public ActionResult Edit(QuizQuestion editQuestion)
+        public ActionResult Edit(Question editQuestion, FormCollection formCollection)
         {
             try
             {
                 _quizRepo.UpdateQuestion(editQuestion);
                 return RedirectToAction("Index");
             }
-            catch
+            catch(Exception ex)
             {
                 return View();
             }

@@ -1,4 +1,4 @@
-﻿@model QuizLibrary.QuizQuestion
+﻿@model QuizLibrary.Question
 
 @{
     ViewBag.Title = "Create";
@@ -10,7 +10,8 @@
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    
+    @Html.HiddenFor(model => model.QuestionId)
+
     <div class="form-horizontal row">
         <div class="col-md-6">
             <h4>QuizQuestion</h4>

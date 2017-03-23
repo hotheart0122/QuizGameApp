@@ -1,4 +1,4 @@
-﻿@model IEnumerable<QuizLibrary.QuizQuestion>
+﻿@model IEnumerable<QuizLibrary.Question>
 
 @{
     ViewBag.Title = "Index";
@@ -53,9 +53,9 @@
             @Html.DisplayFor(modelItem => item.ReasonForAnswer)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id=item.QuestionId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.QuestionId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.QuestionId })
         </td>
     </tr>
 }
